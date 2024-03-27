@@ -13,7 +13,6 @@ Das Hauptziel dieses Projekts ist es, eine effektive Arbeits- und Teamstruktur z
 - Ausgabe der umgerechneten Beträge im Terminal.
 
 ### Kollaboratoren
-
 - Mohamed AlDabaan
 - Tim Stegeann
 - Robert Panek
