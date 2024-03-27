@@ -88,17 +88,20 @@ Diese Funktion würde also die Kurse aus einer Textdatei namens 'kurse.json' les
     return betragInEuro * wechselkurse[zielWaehrung];             // Umrechnung in Zielwährung. Wechselkurse können ganz simpel multipliziert werden.
   };
   
-  const onlyPositiveNumber = (betrag) => {              // Funktion um zu prüfen ob der Betrag eine gültige Zahl ist
-    return !isNaN(betrag) && parseFloat(betrag) > 0;    // isNaN prüft ob der Wert eine Zahl ist. parseFloat wandelt den Wert ANSCHLIEßEND! in eine Zahl um.
-  };
+  //const onlyPositiveNumber = (betrag) => {              // Funktion um zu prüfen ob der Betrag eine gültige Zahl ist
+  //  return !isNaN(betrag) && parseFloat(betrag) > 0;    // isNaN prüft ob der Wert eine Zahl ist. parseFloat wandelt den Wert ANSCHLIEßEND! in eine Zahl um.
+  //};
+  function onlyPositiveNumberCoPi(input) {
+    var regex = /^[0-9]*\.?[0-9]+$/;
+    return regex.test(input) && parseFloat(input) > 0; }; 
 
-  function onlyPositiveNumberCoPi(input) {                  //eine weitere Möglichkeit die Funktion zu schreiben:
-    var regex = /^[0-9]*\.?[0-9]+$/;                    //regex = regular expression = regulärer Ausdruck = Dieser Regex ^[0-9]*\.?[0-9]+$ stellt sicher, dass die Eingabe nur aus Ziffern besteht und optional einen Punkt für Dezimalzahlen enthalten kann.
-    return regex.test(input) && parseFloat(input) > 0;  //die Methode test() des Objektes regex prüft, ob ein String zu einem bestimmten regulären Ausdruck passt.
-  };                                                    //Wenn der Wert eine Zahl ist und größer als 0, wird true zurückgegeben.
-                                                        //Eine falsche Eingabe wie z.Bsp. 2e3 wird jetzt nicht mehr als gültig erkannt weil wir mit regex festgelegt haben, dass nur Zahlen erlaubt sind.
-                                                        //Es ist aber auch verwirrend, dass z.Bsp. der Ausdruck "2e3" für ( 2 \times 10^3 ) steht, was 2000 entspricht, und somit eine gültige Darstellung einer positiven Zahl in JavaScript.
-                                                        //Deshalb wird er auch von isNaN() als Zahl erkannt.
+                                                          //eine weitere Möglichkeit die Funktion zu schreiben:
+                                                          //regex = regular expression = regulärer Ausdruck = Dieser Regex ^[0-9]*\.?[0-9]+$ stellt sicher, dass die Eingabe nur aus Ziffern besteht und optional einen Punkt für Dezimalzahlen enthalten kann.
+                                                          //die Methode test() des Objektes regex prüft, ob ein String zu einem bestimmten regulären Ausdruck passt.
+                                                          //Wenn der Wert eine Zahl ist und größer als 0, wird true zurückgegeben.
+                                                          //Eine falsche Eingabe wie z.Bsp. 2e3 wird jetzt nicht mehr als gültig erkannt weil wir mit regex festgelegt haben, dass nur Zahlen erlaubt sind.
+                                                          //Es ist aber auch verwirrend, dass z.Bsp. der Ausdruck "2e3" für ( 2 \times 10^3 ) steht, was 2000 entspricht, und somit eine gültige Darstellung einer positiven Zahl in JavaScript.
+                                                          //Deshalb wird er auch von isNaN() als Zahl erkannt.
 //------------------------------------------------------------------------------------------------------------------------------------------------                                                        
                                                         //  !!!!!!Diese Variante wurde unter Zuhilfenahme von CoPilot erstellt!!!!!!!!
                                                         /*
