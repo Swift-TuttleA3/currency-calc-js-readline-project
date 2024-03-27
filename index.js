@@ -2,7 +2,9 @@ const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
   });
-  
+//Initialisierung der readLine-Schnittstelle
+
+
   const wechselkurse = {
     'EUR': 1, // Basiswährung
     'USD': 0.9,
