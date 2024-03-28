@@ -39,3 +39,5 @@ The dynamics in a heterogeneous team can be challenging, especially when there a
 ## Overall, we see the key for us in a combination of structure, empathy, and flexibility.
 ### Every team is unique, just as the mood and performance within a fixed team are not the same every day.
 ### Therefore, we actively strive to pay attention to the specific needs and dynamics of our team and our fellow human beings and to communicate our own openly!😊
+
+Translation was in part supported by Microsoft Bing.
