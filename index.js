@@ -1,4 +1,5 @@
-/*    Projekt Währungsumrechner
+/*    
+  Projekt Währungsumrechner
 
   Die Kommentare wurden in die Datei dokumentation_GER.md im Ordner documentation verschoben, um den Code übersichtlicher zu gestalten.
   
@@ -7,7 +8,13 @@
   Bitte beachten Sie, dass dieser Code nur eine einfache Demonstration der Funktionalität eines Währungsumrechners ist
   und nicht für den produktiven Einsatz gedacht ist. Der Code wurde im Rahmen eines Projektes des dci erstellt.
 
-  Start der Anwendung: node index.js
+Start der Anwendung: node index.js
+
+  The comments have been moved to the file documentation_GER.md in the documentation folder to make the code more organized. The code is divided into sections and consistently numbered, referring to the corresponding locations in the documentation.
+
+  Please note that this code is only a simple demonstration of a currency converter’s functionality and is not intended for production use. The code was created as part of a project at DCI.
+
+To start the application: node index.js
 */
 
 // I. Initialisierung der readLine-Schnittstelle.
@@ -154,81 +161,3 @@ const frageNachZielWaehrung = (betragAlsZahl, ausgangsWaehrung) => {
 // VIII. Start der Anwendung durch Funktionsaufruf ohne Parameter
 
 frageNachBetrag();
-
-/*
-
-To-Do:
-  Flowchart erstellen und in die Doku einfügen
-  Dokumentation vervollständigen
-    einzelne Befehlszeilen erläutern falls diese nicht selbsterklärend sind
-  drei neue Branches erstellen und erst von aus aus wird mit develop zusammengeführt.
-
-Code verbessern und erweitern:
-  abbruch des programmes und die zugehörige ja/nein frage verbessern
-    alles ausser ja und nein soll als falsche eingabe gewertet werden und die frage mit Hinweis wiederholt werden
-  Immer die Möglichkeit einblenden, mit Strg + C das Programm zu beenden!!
-
-mögliche aufgaben/features/funktionen:
-
-    abkürzungen der währungen ausgeben
-    Interaktionen formatieren zbsp mit farben/chalk
-    Fragen nach dem Betrag und den Währungen in einer Funktion zusammenfassen
-  Prompttexte verbessern
-  Programmausstieg verbessern und mit einer meldung versehen
-    Funktionen auf jeweils einen Branch auslagern und mit develop zusammenführen um das mergen zu üben  
-
-
-
-
-
-FLOWCHART
-
-https://mermaid.js.org/syntax/flowchart.html
-
-Erstellen Sie eine neue Datei mit der Erweiterung .md, zum Beispiel diagram.md.
-Fügen Sie den folgenden Code in die Datei ein:
-
-```mermaid
-graph TD
-A[Start] --> B[Frage nach Betrag]
-B --> C[Frage nach Ausgangswährung]
-C --> D[Frage nach Zielwährung]
-D --> E[Ende]
-D --> F[Frage nach Zielwährung]
-F --> D
-F --> E
-E --> G[Ende]
-G --> H[Start]
-H --> B
-H --> G
-```	
-
-Speichern Sie die Datei und öffnen Sie sie mit einem Markdown-Viewer, der Mermaid unterstützt, wie z.B. die Markdown Preview Mermaid Support Erweiterung für Visual Studio Code.
-Bitte beachten Sie, dass Sie die Zeilen mit den drei Backticks (`) am Anfang und am Ende des Codes nicht entfernen sollten. Sie sind notwendig, um den Codeblock in der Markdown-Datei zu definieren.
-
-//!!!!!!!!!!!!!!!     https://www.geeksforgeeks.org/node-js-readline-module/
-
-
-
-
-// VII. Funktion zur Darstellung möglicher Ziel und Ausgangswährungen
-
-const showPossibleAbk = () => {
-  console.log("Mögliche Abkürzungen:");
-  Object.keys(wechselkurse).forEach((waehrung) => {
-    console.log(waehrung);
-  });
-  readline.close();
-};
-
-macht probleme wenn zeile 163 auskommentiert ist und macht probleme wenn zeile 163 nicht auskommentiert ist:(((
-logisch weil ich readline.close benötige damit die funktion beendet wird, aber wenn ich es nicht auskommentiere wird die Anwendung beendet weil wegen der zeile 163...LOL
-
-Lösung wäre vielleicht eine neue Funktion die die Abfrage nach der Zielwährung startet und die showAbbreviations Funktion aufruft, wenn der User "list" eingibt.
-Diese Funktion könnte dann auch die showAbbreviations Funktion aufrufen und die Abfrage nach der Zielwährung starten.
-Trotzdem würde das problem mit der readline.close() funktion bleiben, weil die showAbbreviations Funktion die readline.close() Funktion aufruft und die Anwendung beendet wird.
-
-Es ist jetzt 03:15 Uhr und ich fühle mich wie eine der Todsünden aus Der siebte Sinn! Der Dude im Bett,
-der seit Monaten vor sich hin fault. zumindest fühlen sich der kopf und die Füße so an! :D
-
-*/
