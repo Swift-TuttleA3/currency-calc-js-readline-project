@@ -113,10 +113,9 @@ const frageNachWaehrung = (betragAlsZahl) => {
 
 const frageNachZielWaehrung = (betragAlsZahl, ausgangsWaehrung) => {
   readline.question(
-    "Bitte gib die gewünschte Zielwährung als Kürzel ein oder 'list' für eine Übersicht: ",
+    "Bitte gib die gewünschte Zielwährung als Kürzel ein: ",
     (zielWaehrung) => {
-      if (zielWaehrung.toLowerCase() === "list") {
-      } else if (!wechselkurse[zielWaehrung.toLowerCase()]) {
+      if (!wechselkurse[zielWaehrung.toLowerCase()]) {
         console.log(
           "Diese Zielwährung wird nicht unterstützt. Möchtest du es erneut versuchen? (ja/nein)"
         );
@@ -146,12 +145,61 @@ const frageNachZielWaehrung = (betragAlsZahl, ausgangsWaehrung) => {
 
 frageNachBetrag();
 
-
-
-
-
-
 /*
+
+To-Do:
+  Flowchart erstellen und in die Doku einfügen
+  Dokumentation vervollständigen
+    einzelne Befehlszeilen erläutern falls diese nicht selbsterklärend sind
+  drei neue Branches erstellen und erst von aus aus wird mit develop zusammengeführt.
+
+Code verbessern und erweitern:
+  abbruch des programmes und die zugehörige ja/nein frage verbessern
+    alles ausser ja und nein soll als falsche eingabe gewertet werden und die frage mit Hinweis wiederholt werden
+  Immer die Möglichkeit einblenden, mit Strg + C das Programm zu beenden!!
+
+mögliche aufgaben/features/funktionen:
+
+    abkürzungen der währungen ausgeben
+    Interaktionen formatieren zbsp mit farben/chalk
+    Fragen nach dem Betrag und den Währungen in einer Funktion zusammenfassen
+  Prompttexte verbessern
+  Programmausstieg verbessern und mit einer meldung versehen
+    Funktionen auf jeweils einen Branch auslagern und mit develop zusammenführen um das mergen zu üben  
+
+
+
+
+
+FLOWCHART
+
+https://mermaid.js.org/syntax/flowchart.html
+
+Erstellen Sie eine neue Datei mit der Erweiterung .md, zum Beispiel diagram.md.
+Fügen Sie den folgenden Code in die Datei ein:
+
+```mermaid
+graph TD
+A[Start] --> B[Frage nach Betrag]
+B --> C[Frage nach Ausgangswährung]
+C --> D[Frage nach Zielwährung]
+D --> E[Ende]
+D --> F[Frage nach Zielwährung]
+F --> D
+F --> E
+E --> G[Ende]
+G --> H[Start]
+H --> B
+H --> G
+```	
+
+Speichern Sie die Datei und öffnen Sie sie mit einem Markdown-Viewer, der Mermaid unterstützt, wie z.B. die Markdown Preview Mermaid Support Erweiterung für Visual Studio Code.
+Bitte beachten Sie, dass Sie die Zeilen mit den drei Backticks (`) am Anfang und am Ende des Codes nicht entfernen sollten. Sie sind notwendig, um den Codeblock in der Markdown-Datei zu definieren.
+
+//!!!!!!!!!!!!!!!     https://www.geeksforgeeks.org/node-js-readline-module/
+
+
+
 
 // VII. Funktion zur Darstellung möglicher Ziel und Ausgangswährungen
 
