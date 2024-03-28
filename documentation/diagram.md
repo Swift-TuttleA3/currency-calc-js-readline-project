@@ -21,7 +21,7 @@ K --> Z
 
 
 
-### Der Prozess beginnt bei "Start" (Knoten A).
+## Der Prozess beginnt bei "Start" (Knoten A).
 
 ### Zuerst werden Module importiert und Variablen definiert (Knoten B).
 
