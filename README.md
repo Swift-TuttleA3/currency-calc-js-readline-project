@@ -4,7 +4,6 @@
 
 This project is a simple currency converter written in JavaScript. User interaction occurs exclusively through the terminal using the `readline-sync` library.
 
-
 ## Objective
 
 The main goal of this project is to develop an effective work and team structure. We will collaborate on a manageable project to improve teamwork, communication, task allocation, and our general understanding of new or unfamiliar work techniques.
@@ -14,7 +13,6 @@ Defining content and time frames for our chosen intermediate steps, along with r
 From a technical perspective, our focus will be on code review, pair programming, and a general understanding of using Git. The set goal should serve as assistance rather than an obstacle.
 
 An important secondary goal(and prerequisite for achieving the main goal) is to create and maintain a conducive, creative, open, and relaxed work atmosphere.
-
 
 ## Features
 
@@ -30,8 +28,6 @@ An important secondary goal(and prerequisite for achieving the main goal) is to 
 - Bing for translation
 
 ## Team Feedback/Experiences
-
-
 
 
 ## Contributors
