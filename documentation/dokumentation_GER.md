@@ -87,50 +87,16 @@ Er wird isNaN() als Zahl erkannt und die falsche Eingabe passiert die Validierun
 Dieser Ausdruck schließt somit Zeichenketten aus, die nicht ausschließlich aus Ziffern und höchstens einem Punkt bestehen, und verhindert Formate wie die exponentielle Notation.
 
 
-Unser erster Versuch hat sich als anfällig erwiesen:
-  const onlyPositiveNumber = (betrag) => { 
-    return !isNaN(betrag) && parseFloat(betrag) > 0;
-    };
-parseFloat() hat den Wert grundsätzlich in einen truthy value verwandelt und somit die Überprüfung ausgehebelt.
-
-
-
-
-
-
-
-        BAUSTELLE!!!!!!!!!
-
-
-
-
-
-
-
-
-
-
-
 ## V. Funktion zur Abfrage des Betrages
 
-## VI. Funktion zur Abfrage der Ausgangwährung
-
-## VII. Funktion zur Abfrage der Zielwährung
-
-
-/* Drei Funktionen um den Benutzer nach Betrag und Währung zu fragen:
-  
-1. frageNachBetrag()
-
-  Die Funktion frageNachBetrag fragt den Benutzer nach dem Betrag und prüft, ob es sich um eine gültige Zahl handelt.
+Die Funktion frageNachBetrag fragt den Benutzer nach dem Betrag und prüft, ob es sich um eine gültige Zahl handelt.
     WENN NICHT, wird der Benutzer gefragt, ob er es erneut versuchen möchte.
       WENN JA, wird die Funktion frageNachBetrag erneut aufgerufen.
       WENN NEIN, wird die readline-Schnittstelle geschlossen.
 
   WENN der Betrag gültig ist, wird der Benutzer nach der Ausgangswährung gefragt.
 
-
-2. frageNachWaehrung()
+## VI. Funktion zur Abfrage der Ausgangwährung
 
   Die Funktion frageNachWaehrung prüft, ob die Ausgangswährung unterstützt wird; SPRICH ob sie im Objekt wechselkurse vorhanden ist.
     WENN NICHT, wird der Benutzer gefragt, ob er es erneut versuchen möchte.
@@ -139,8 +105,8 @@ parseFloat() hat den Wert grundsätzlich in einen truthy value verwandelt und so
 
   WENN die Ausgangswährung gültig ist, wird der Benutzer nach der Zielwährung gefragt.
 
+## VII. Funktion zur Abfrage der Zielwährung
 
-3. frageNachZielWaehrung()
 
   Die Funktion frageNachZielWaehrung prüft, ob die Zielwährung unterstützt wird.
 
@@ -156,6 +122,4 @@ parseFloat() hat den Wert grundsätzlich in einen truthy value verwandelt und so
   der Benutzerinteraktion. Die Anordnung der Funktionen ist so gewählt, dass sie
   nacheinander aufgerufen werden und die Benutzerinteraktion in einem logischen
   Ablauf erfolgt(siehe auch Anlage flowchart).
-
-*/
 
