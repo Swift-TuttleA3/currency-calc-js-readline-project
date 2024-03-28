@@ -1,4 +1,3 @@
-
 /*    Projekt Währungsumrechner
 
   Die Kommentare wurden in die Datei dokumentation_GER.md im Ordner documentation verschoben, um den Code übersichtlicher zu gestalten.
@@ -12,7 +11,7 @@
 */
 
 // I. Initialisierung der readLine-Schnittstelle.
-
+console.clear();
 const readline = require("readline").createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -46,7 +45,7 @@ const wechselkurse = {
   TRY: 34.755,
   UAH: 42.345,
   HUF: 399.5,
-  BYN: 3.5197
+  BYN: 3.5197,
 };
 
 // III. Funktion um den Betrag in die Basiswährung umzurechnen
@@ -61,61 +60,73 @@ const umrechnen = (betrag, ausgangsWaehrung, zielWaehrung) => {
 function onlyValidNumber(input) {
   var regex = /^[0-9]*\.?[0-9]+$/;
   return regex.test(input) && parseFloat(input) > 0;
-};
+}
 
 // V. Funktion zur Abfrage des Betrages
 
 const frageNachBetrag = () => {
-  readline.question("Bitte gib den Betrag als positive Zahl zwischen 0 und 9 ein: ", (betrag) => {
-    if (!onlyValidNumber(betrag)) {
-      console.log(
-        "Das ist keine gültige Eingabe. Achte u.U. darauf einen Punkt und kein Komma zu setzen. Möchtest du es erneut versuchen? (ja/nein)"
-      );
-      readline.question("", (antwort) => {
-        if (antwort.toLowerCase() === "ja") {
-          frageNachBetrag();
-        } else {
-          readline.close();
-        }
-      });
-    } else {
-      frageNachWaehrung(parseFloat(betrag));
-    }
-  });
-};
-
-// VI. Funktion zur Abfrage der Ausgangwährung
-
-const frageNachWaehrung = (betragAlsZahl) => {
   readline.question(
-    "Bitte gib die Ausgangswährung als Kürzel ein: ",
-    (ausgangsWaehrung) => {
-      ausgangsWaehrung = ausgangsWaehrung.toUpperCase();
-      if (!wechselkurse[ausgangsWaehrung]) {
+    "Bitte gib den Betrag als positive Zahl zwischen 0 und 9 ein: ",
+    (betrag) => {
+      if (!onlyValidNumber(betrag)) {
         console.log(
-          "Diese Ausgangswährung wird nicht unterstützt. Möchtest du es erneut versuchen? (ja/nein)"
+          "Das ist keine gültige Eingabe. Achte u.U. darauf einen Punkt und kein Komma zu setzen. Möchtest du es erneut versuchen? (ja/nein)"
         );
         readline.question("", (antwort) => {
           if (antwort.toLowerCase() === "ja") {
-            frageNachWaehrung(betragAlsZahl);
+            frageNachBetrag();
           } else {
             readline.close();
           }
         });
       } else {
-        frageNachZielWaehrung(betragAlsZahl, ausgangsWaehrung);
+        frageNachWaehrung(parseFloat(betrag));
       }
     }
   );
 };
 
+// VI. Funktion zur Abfrage der Ausgangwährung
+
+const frageNachWaehrung = (betragAlsZahl) => {
+  const waehrungenFrage = Object.keys(wechselkurse).join(", ");
+  readline.question(
+    `Bitte gib die gewünschte Zielwährung als Kürzel ein.\nVerfügbare Währungen sind:\n${waehrungenFrage}\n`,
+    (ausgangsWaehrung) => {
+      if (typeof ausgangsWaehrung !== "string") {
+        console.log(
+          "Ungültige Eingabe. Bitte gib die Ausgangswährung als Kürzel ein."
+        );
+        frageNachWaehrung(betragAlsZahl);
+      } else {
+        ausgangsWaehrung = ausgangsWaehrung.toUpperCase();
+        if (!wechselkurse[ausgangsWaehrung]) {
+          console.log(
+            "Diese Ausgangswährung wird nicht unterstützt. Möchtest du es erneut versuchen? (ja/nein)"
+          );
+          readline.question("", (antwort) => {
+            if (antwort.toLowerCase() === "ja") {
+              frageNachWaehrung(betragAlsZahl);
+            } else {
+              readline.close();
+            }
+          });
+        } else {
+          frageNachZielWaehrung(betragAlsZahl, ausgangsWaehrung);
+        }
+      }
+    }
+  );
+};
 // VII. Funktion zur Abfrage der Zielwährung
 
 const frageNachZielWaehrung = (betragAlsZahl, ausgangsWaehrung) => {
+  const waehrungenZiel = Object.keys(wechselkurse).join(", ");
   readline.question(
-    "Bitte gib die gewünschte Zielwährung als Kürzel ein: ",
+    `Bitte gib die gewünschte Zielwährung als Kürzel ein.\nVerfügbare Währungen sind:\n${waehrungenZiel}\n`,
     (zielWaehrung) => {
-      if (!wechselkurse[zielWaehrung.toLowerCase()]) {
+      zielWaehrung = zielWaehrung.toUpperCase();
+      if (!wechselkurse[zielWaehrung]) {
         console.log(
           "Diese Zielwährung wird nicht unterstützt. Möchtest du es erneut versuchen? (ja/nein)"
         );
@@ -133,9 +144,8 @@ const frageNachZielWaehrung = (betragAlsZahl, ausgangsWaehrung) => {
           zielWaehrung
         );
         console.log(
-          `${betragAlsZahl} ${ausgangsWaehrung} entspricht ${umgerechneterBetrag} ${zielWaehrung}.`
+          `Der umgerechnete Betrag ist: ${umgerechneterBetrag} ${zielWaehrung}`
         );
-        readline.close();
       }
     }
   );
